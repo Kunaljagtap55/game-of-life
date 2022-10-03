@@ -12,7 +12,8 @@ pipeline {
 							 }
 		  stage ('mvn build') { 
 		  steps { sh "rm -rf /root/.m2/repository"
-		          sh "mvn clean install /mnt/project/game-of-life/"
+		         dir ('/mnt/project/game-of-life/') 
+			 {sh "mvn clean install" }
 		  }
 							   
 							   }
