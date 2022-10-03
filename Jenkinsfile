@@ -4,7 +4,7 @@ pipeline {
           stages {
 		  stage ('git clone'){
 		  steps { dir ('/mnt/project') 
-		                    { sh "rm -rf /mnt/project" 
+		                    { sh "rm -rf /mnt/project/*" 
 							sh "git clone https://github.com/Kunaljagtap55/game-of-life.git"
                               sh " chmod -R 777 /mnt	"						
 							}
