@@ -14,15 +14,15 @@ pipeline {
 		  steps { sh "rm -rf /root/.m2/repository"
 		         dir ('/mnt/project/game-of-life/') 
 			 {sh "mvn clean install"
-			  sh "Dskip-test"}
+			  }
 		  }
 							   
 							   }
 		   stage ('deploy on slave2') {
-		   steps {sh "scp -i /root/windowsmachinekey.pem /mnt/project/gameoflife-web/target/gameoflife.war ec2@172.31.35.62:/mnt/server/apache-tomcat-9.0.67/webapps"}
+		   steps {sh "scp -i /root/windowsmachinekey.pem /mnt/project/game-of-life/gameoflife-web/target/gameoflife.war ec2@172.31.35.62:/mnt/server/apache-tomcat-9.0.67/webapps"}
 		                               }
 		   stage ('deploy on slave3') {
-		   steps {sh "scp -i /root/windowsmachinekey.pem /mnt/project/gameoflife-web/target/gameoflife.war ec2@172.31.10.231:/mnt/server/apache-tomcat-9.0.67/webapps"}
+		   steps {sh "scp -i /root/windowsmachinekey.pem /mnt/project/game-of-life/gameoflife-web/target/gameoflife.war ec2@172.31.10.231:/mnt/server/apache-tomcat-9.0.67/webapps"}
 		                               }
 		          }
 
