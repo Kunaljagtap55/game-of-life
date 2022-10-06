@@ -13,7 +13,8 @@ pipeline {
 		  stage ('mvn build') { 
 		  steps { sh "rm -rf /root/.m2/repository"
 		         dir ('/mnt/project/game-of-life/') 
-			 {sh "mvn clean install" }
+			 {sh "mvn clean install"
+			  sh "Dskip-test"}
 		  }
 							   
 							   }
